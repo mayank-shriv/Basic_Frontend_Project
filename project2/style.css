@@ -1,0 +1,24 @@
+/* A simple, common CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body {
+    background-color: rgba(0, 0, 0, 0.533);
+    color: white;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.button1{
+    text-align: justify;
+}
+header{
+    margin: 1em;
+
+}
+form{
+    padding: 1em;
+}
