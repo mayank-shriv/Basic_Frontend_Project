@@ -44,3 +44,36 @@ h1 {
   padding-top: 25px;
   
 }
+/* Style for the main navigation container */
+.link {
+  background-color: #f4f4f4; /* Light grey background */
+  padding: 15px; /* Adds space inside the border */
+  border: 2px solid #ddd; /* A solid, light-grey border */
+  border-radius: 8px; /* Adds rounded corners */
+  text-align: center; /* Centers the links inside */
+}
+
+/* Style for the links inside the nav */
+.link a {
+  color: #333; /* Dark text color */
+  text-decoration: none; /* Removes the default underline */
+  margin: 0 15px; /* Adds space between the links */
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+    .ram {
+      color: #333;
+      /* Dark text color */
+      text-decoration: none;
+      /* Removes the default underline */
+      margin: 0 15px;
+      /* Adds space between the links */
+      font-family: sans-serif;
+      font-weight: bold;
+      text-align: center;
+      font-size: larger;
+      border: solid #ffa602;
+      padding: 1.5%;
+      
+    }
