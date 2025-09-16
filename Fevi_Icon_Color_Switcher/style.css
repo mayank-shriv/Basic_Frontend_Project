@@ -1,0 +1,59 @@
+/* General styling for the page */
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #212121;
+  color: #fff;
+}
+
+/* Styling for the color switcher container */
+main {
+  margin-top: 20px;
+}
+
+/* This is the main class for all the color boxes */
+.button {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #555;
+  border-radius: 8px; /* Adds slightly rounded corners */
+  display: inline-block; /* Allows setting width and height on a span */
+  cursor: pointer; /* Changes the mouse to a pointer on hover */
+  margin: 10px;
+}
+
+/* --- Individual color styles based on ID --- */
+
+#grey {
+  background-color: grey;
+}
+
+#black {
+  background-color: black;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#green {
+  background-color: green;
+}
+
+/* Style for the main navigation container */
+.link {
+  background-color: #f4f4f4; /* Light grey background */
+  padding: 15px; /* Adds space inside the border */
+  border: 2px solid #ddd; /* A solid, light-grey border */
+  border-radius: 8px; /* Adds rounded corners */
+  text-align: center; /* Centers the links inside */
+}
+
+/* Style for the links inside the nav */
+.link a {
+  color: #333; /* Dark text color */
+  text-decoration: none; /* Removes the default underline */
+  margin: 0 15px; /* Adds space between the links */
+  font-family: sans-serif;
+  font-weight: bold;
+}
