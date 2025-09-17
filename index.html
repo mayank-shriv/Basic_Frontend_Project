@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Collection of my HTML, CSS, and JavaScript projects.">
+  <title>My Projects</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styling -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #24292f;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    .card a {
+      text-decoration: none;
+      color: #24292f;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #24292f;
+      color: #fff;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Projects</h1>
+    <p>A collection of my HTML, CSS, and JavaScript projects.</p>
+  </header>
+  
+  <main>
+    <div class="card"><a href="BMI_calculator/">BMI Calculator</a></div>
+    <div class="card"><a href="GuessNumberGame/">Guess Number Game</a></div>
+    <div class="card"><a href="realTimeClock/">Real Time Clock</a></div>
+    <div class="card"><a href="colorSchemeSwitcher/">Color Scheme Switcher</a></div>
+    <div class="card"><a href="Fevi_Icon_Color_Switcher/">Fevi Icon Color Switcher</a></div>
+    <div class="card"><a href="Random_Fav_Icon/">Random Fav Icon</a></div>
+  </main>
+  
+  <footer>
+    <p>© 2025 My Project Portfolio</p>
+  </footer>
+</body>
+</html>
