@@ -7,7 +7,8 @@ body {
     max-width: 750px;
     min-width: 480px;
     margin: 0 auto;
-    background-color: #212121;
+    background-color: #212121; /* Set background color */
+    color: #fff; /* Set default text color */
 }
 
 .lastResult {
@@ -29,7 +30,6 @@ button {
     font-size: 30px;
     border-style: none;
     margin-top: 30px;
-    /* margin-left: 50px; */
 }
 
 #subt {
@@ -41,7 +41,6 @@ button {
     font-size: 20px;
     border-style: none;
     margin-top: 50px;
-    /* margin-left: 75px; */
 }
 
 #guessField {
@@ -51,15 +50,12 @@ button {
     font-size: 30px;
     border-style: none;
     margin-top: 25px;
-
-    /* margin-left: 50px; */
     border: 5px solid #6c6d6d;
     text-align: center;
 }
 
 #guess {
-    font-size: 55px;
-    /* margin-left: 90px; */
+    font-size: 50px;
     margin-top: 120px;
     color: #fff;
 }
@@ -76,11 +72,12 @@ button {
     background-color: #474747;
     color: #fff;
     font-size: 25px;
+    margin: 20px auto; /* Center the wrapper */
+    padding: 20px;
 }
 
 h1 {
     background-color: #161616;
-
     color: #fff;
     text-align: center;
 }
@@ -90,3 +87,19 @@ p {
     text-align: center;
 }
 
+nav {
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 50px;
+    width: 100%;
+}
+
+nav a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
