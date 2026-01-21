@@ -1,59 +1,164 @@
-/* General styling for the page */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --bg-default: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background-color: var(--bg-default);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific Themes */
+body.theme-grey {
+  background-color: #4b5563;
+}
+
+body.theme-black {
+  background-color: #111827;
+}
+
+body.theme-blue {
+  background-color: #1e40af;
+}
+
+body.theme-green {
+  background-color: #065f46;
+}
+
+/* Nav Bar */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Main Layout */
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.theme-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   text-align: center;
-  background-color: #212121;
-  color: #fff;
 }
 
-/* Styling for the color switcher container */
-main {
-  margin-top: 20px;
+.card-header {
+  margin-bottom: 2.5rem;
 }
 
-/* This is the main class for all the color boxes */
-.button {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #555;
-  border-radius: 8px; /* Adds slightly rounded corners */
-  display: inline-block; /* Allows setting width and height on a span */
-  cursor: pointer; /* Changes the mouse to a pointer on hover */
-  margin: 10px;
+.card-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-/* --- Individual color styles based on ID --- */
-
-#grey {
-  background-color: grey;
+.card-header p {
+  color: var(--text-muted);
 }
 
-#black {
-  background-color: black;
+/* Swatch Grid */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-#blue {
-  background-color: blue;
+.swatch {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-#green {
-  background-color: green;
+.swatch:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Style for the main navigation container */
-.link {
-  background-color: #f4f4f4; /* Light grey background */
-  padding: 15px; /* Adds space inside the border */
-  border: 2px solid #ddd; /* A solid, light-grey border */
-  border-radius: 8px; /* Adds rounded corners */
-  text-align: center; /* Centers the links inside */
+.swatch.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Style for the links inside the nav */
-.link a {
-  color: #333; /* Dark text color */
-  text-decoration: none; /* Removes the default underline */
-  margin: 0 15px; /* Adds space between the links */
-  font-family: sans-serif;
-  font-weight: bold;
+.swatch-color {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.swatch-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.card-footer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .theme-card {
+    padding: 2rem;
+    border-radius: 0;
+  }
+
+  .swatch-grid {
+    gap: 1rem;
+  }
 }

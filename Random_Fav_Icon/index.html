@@ -1,124 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Favicon Generator</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link for the favicon, which we will update with JavaScript -->
-    <link id="favicon" rel="icon" href="">
-    <style>
-        /* Custom style for the button transition */
-        .generate-btn {
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .generate-btn:hover {
-            transform: scale(1.05);
-        }
-    </style>
+    <title>Random Icon Engine</title>
+    <!-- Use the same script logic as Fevi_Icon but with primary focus on Random -->
+    <meta http-equiv="refresh" content="0; url=../Fevi_Icon_Color_Switcher/index.html">
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen font-sans">
 
-    <div class="text-center p-8 bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full border border-gray-700">
-        <h1 class="text-4xl font-bold mb-3 text-cyan-400">Random Favicon Generator</h1>
-        <p class="text-gray-300 mb-8">A new abstract icon is generated in your browser tab on load. Click the button to create another one!</p>
-        
-        <!-- Button to generate a new favicon -->
-        <button id="generate-button" class="generate-btn w-full py-3 px-6 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-lg font-semibold shadow-lg focus:outline-none focus:ring-4 focus:ring-cyan-500 focus:ring-opacity-50">
-            Generate New Favicon
-        </button>
-    </div>
-
-    <script>
-        // --- DOM Elements ---
-        const faviconLink = document.getElementById('favicon');
-        const generateButton = document.getElementById('generate-button');
-
-        // --- Configuration ---
-        const faviconSize = 64; // Use a higher resolution for better quality
-
-        /**
-         * Generates a random integer between min and max (inclusive).
-         * @param {number} min - The minimum value.
-         * @param {number} max - The maximum value.
-         * @returns {number} A random integer.
-         */
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        /**
-         * Generates a random HSL color string.
-         * HSL is used for more vibrant and aesthetically pleasing random colors.
-         * @returns {string} A random HSL color string like 'hsl(120, 80%, 50%)'.
-         */
-        function getRandomColor() {
-            const hue = getRandomInt(0, 360);
-            const saturation = getRandomInt(50, 90); // Avoid dull colors
-            const lightness = getRandomInt(40, 60); // Avoid too dark or too light colors
-            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        }
-
-        /**
-         * Generates a new random favicon and updates the document's favicon link.
-         */
-        function updateFavicon() {
-            // 1. Create a canvas element in memory
-            const canvas = document.createElement('canvas');
-            canvas.width = faviconSize;
-            canvas.height = faviconSize;
-
-            // 2. Get the 2D drawing context
-            const context = canvas.getContext('2d');
-
-            // 3. Draw the random favicon design
-            // Fill the background with a random color
-            context.fillStyle = getRandomColor();
-            context.fillRect(0, 0, faviconSize, faviconSize);
-
-            // Draw a random number of shapes
-            const numShapes = getRandomInt(3, 7);
-            for (let i = 0; i < numShapes; i++) {
-                context.fillStyle = getRandomColor();
-                context.strokeStyle = 'rgba(255, 255, 255, 0.5)'; // Add a subtle border
-                context.lineWidth = 2;
-
-                // Randomly choose to draw a circle or a rectangle
-                if (Math.random() > 0.5) {
-                    // Draw a circle
-                    const x = getRandomInt(0, faviconSize);
-                    const y = getRandomInt(0, faviconSize);
-                    const radius = getRandomInt(faviconSize * 0.1, faviconSize * 0.4);
-                    context.beginPath();
-                    context.arc(x, y, radius, 0, 2 * Math.PI);
-                    context.fill();
-                    context.stroke();
-                } else {
-                    // Draw a rectangle
-                    const x = getRandomInt(0, faviconSize * 0.8);
-                    const y = getRandomInt(0, faviconSize * 0.8);
-                    const width = getRandomInt(faviconSize * 0.2, faviconSize * 0.6);
-                    const height = getRandomInt(faviconSize * 0.2, faviconSize * 0.6);
-                    context.fillRect(x, y, width, height);
-                    context.strokeRect(x, y, width, height);
-                }
-            }
-
-            // 4. Convert the canvas to a data URL (PNG format)
-            const dataUrl = canvas.toDataURL('image/png');
-
-            // 5. Update the href attribute of the favicon link element
-            faviconLink.href = dataUrl;
-        }
-
-        // --- Initialization ---
-        // Add click event listener to the button
-        generateButton.addEventListener('click', updateFavicon);
-
-        // Generate the first favicon when the page loads
-        window.onload = updateFavicon;
-    </script>
-
+<body
+    style="background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
+    <p>Redirecting to Favicon Lab...</p>
 </body>
+
 </html>

@@ -4,34 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Number Guessing Game</title>
+    <title>Neon Guess - Premium Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="ram">
-        <a href="/" aria-current="page">Home</a>
-        <a target="_blank" href="https://www.youtube.com/@chaiaurcode">YouTube channel</a>
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Dashboard
+        </a>
+        <a target="_blank" href="https://www.youtube.com/@chaiaurcode" class="nav-link secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+            </svg>
+            Chai aur Code
+        </a>
     </nav>
 
-    <div id="wrapper">
-        <h1>Number guessing game</h1>
-        <p>Try and guess a random number between 1 and 100.</p>
-        <p>You have 10 attempts to guess the right number.</p>
-        <br>
-        <form class="form" id="form">
-            <label for="guessField" id="guess">Guess a number</label>
-            <input type="text" id="guessField" class="guessField">
-            <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
-        </form>
+    <main class="main-container">
+        <div id="wrapper" class="glass-card">
+            <header class="card-header">
+                <h1>Neon Guess</h1>
+                <p>Guess the number between 1 and 100</p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="label">Attempts Left</span>
+                        <span class="value lastResult">10</span>
+                    </div>
+                </div>
+            </header>
 
-        <div class="resultParas">
-            <p>Previous Guesses: <span class="guesses"></span></p>
-            <p>Guesses Remaining: <span class="lastResult">10</span></p>
-            <p class="lowOrHi"></p>
+            <form class="form" id="form">
+                <div class="input-group">
+                    <input type="number" id="guessField" class="guessField" placeholder="42" min="1" max="100" required>
+                    <input type="submit" id="subt" value="Submit Guess" class="btn-primary">
+                </div>
+            </form>
+
+            <div class="resultParas">
+                <div class="history-container">
+                    <h3>Previous Guesses</h3>
+                    <div class="guesses"></div>
+                </div>
+                <div class="feedback-area">
+                    <p class="lowOrHi"></p>
+                </div>
+            </div>
+
+            <div id="new-game-container" class="hidden">
+                <button id="newGame" class="btn-secondary">New Game</button>
+            </div>
         </div>
-    </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 
