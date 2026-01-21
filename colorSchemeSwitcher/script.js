@@ -1,16 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.swatch');
     const body = document.body;
+    const hexValueDisplay = document.querySelector('#hex-value');
 
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
             const theme = button.getAttribute('data-theme');
+            const hex = button.getAttribute('data-hex');
 
             // Update active state in UI
             updateActiveSwatch(button);
 
             // Apply theme to body
             applyTheme(theme);
+
+            // Update HEX display
+            if (hexValueDisplay) {
+                hexValueDisplay.textContent = hex;
+            }
         });
     });
 

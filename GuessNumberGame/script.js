@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
       checkGuess(guess);
       displayGuess(guess);
 
+      if (numGuessesRemaining <= 3 && numGuessesRemaining > 0) {
+        remaining.classList.add('pulse');
+      } else {
+        remaining.classList.remove('pulse');
+      }
+
       if (guess === randomNumber) {
         endGame(true);
       } else if (numGuessesRemaining === 0) {

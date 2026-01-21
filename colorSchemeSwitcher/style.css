@@ -151,6 +151,35 @@ body.theme-green {
   line-height: 1.5;
 }
 
+/* HEX Display */
+.hex-display {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed var(--glass-border);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.hex-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+#hex-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .theme-card {

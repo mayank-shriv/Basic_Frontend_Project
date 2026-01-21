@@ -40,23 +40,28 @@
                 <p>Personalize your viewing experience</p>
             </header>
 
-            <div class="swatch-grid">
-                <button class="swatch active" id="grey" data-theme="grey" title="Grey Theme">
+            <div class="swatch-grid" id="color-grid">
+                <button class="swatch active" data-theme="grey" data-hex="#4b5563" title="Grey Theme">
                     <span class="swatch-color" style="background-color: #4b5563;"></span>
                     <span class="swatch-name">Grey</span>
                 </button>
-                <button class="swatch" id="black" data-theme="black" title="Dark Theme">
+                <button class="swatch" data-theme="black" data-hex="#111827" title="Dark Theme">
                     <span class="swatch-color" style="background-color: #111827;"></span>
                     <span class="swatch-name">Dark</span>
                 </button>
-                <button class="swatch" id="blue" data-theme="blue" title="Ocean Theme">
+                <button class="swatch" data-theme="blue" data-hex="#1e40af" title="Ocean Theme">
                     <span class="swatch-color" style="background-color: #1e40af;"></span>
                     <span class="swatch-name">Ocean</span>
                 </button>
-                <button class="swatch" id="green" data-theme="green" title="Forest Theme">
+                <button class="swatch" data-theme="green" data-hex="#065f46" title="Forest Theme">
                     <span class="swatch-color" style="background-color: #065f46;"></span>
                     <span class="swatch-name">Forest</span>
                 </button>
+            </div>
+
+            <div class="hex-display" id="hex-display">
+                <span class="hex-label">Active HEX</span>
+                <code id="hex-value">#4b5563</code>
             </div>
 
             <footer class="card-footer">
