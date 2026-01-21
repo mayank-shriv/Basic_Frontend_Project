@@ -1,62 +1,303 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary: #64748b;
+    --secondary-hover: #475569;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --status-underweight: #fbbf24;
+    --status-normal: #10b981;
+    --status-overweight: #f97316;
+    --status-obese: #ef4444;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  background: url("Calculator_Bg.png") center/cover no-repeat;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* Removed display: flex properties */
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
 }
 
-/* Use h1 element styling directly unless you have a reason to use a class like .h1 */
-h1 {
-  text-align: center;
+/* Nav Bar */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-/* Navigation styling remains untouched */
-nav {
-  background-color: white;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  height: 50px;
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
 }
 
-nav a {
-  list-style: none;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding: 0 0.5rem;
+.nav-link:hover {
+    opacity: 0.8;
 }
 
-nav a:hover {
-  background-color: indianred;
-  font-weight: 700;
-  height: 100%;
+.nav-link.secondary {
+    color: #ff4d4d;
 }
 
-/* Container centered on the page */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 1rem auto;  /* auto margin horizontally centers the div */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+/* Main Layout */
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
-.movtocentre{
-  width: 90%;
-  max-width: 1200px;
-  margin: 1rem auto;  /* auto margin horizontally centers the div */
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  align-items: center;  /* centers child elements */
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.card-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-header p {
+    color: var(--text-muted);
+}
+
+/* Form Styling */
+#bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    color: white;
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.unit {
+    position: absolute;
+    right: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    flex: 2;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Results Section */
+.results-container {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    animation: slideUp 0.4s ease-out;
+}
+
+.results-container.hidden {
+    display: none;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bmi-value-wrapper {
+    margin-bottom: 1rem;
+}
+
+.bmi-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+#bmi-number {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
+.bmi-status {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.status-underweight { background: rgba(251, 191, 36, 0.2); color: var(--status-underweight); }
+.status-normal { background: rgba(16, 185, 129, 0.2); color: var(--status-normal); }
+.status-overweight { background: rgba(249, 115, 22, 0.2); color: var(--status-overweight); }
+.status-obese { background: rgba(239, 68, 68, 0.2); color: var(--status-obese); }
+
+.bmi-message {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Weight Guide */
+.weight-guide {
+    margin-top: 3rem;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 2rem;
+}
+
+.weight-guide h3 {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.guide-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+.guide-item .category {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.guide-item .range {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.guide-item[data-type="underweight"] { border-left: 3px solid var(--status-underweight); }
+.guide-item[data-type="normal"] { border-left: 3px solid var(--status-normal); }
+.guide-item[data-type="overweight"] { border-left: 3px solid var(--status-overweight); }
+.guide-item[data-type="obese"] { border-left: 3px solid var(--status-obese); }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 2rem;
+        border-radius: 0;
+    }
+    .card-header h1 {
+        font-size: 2rem;
+    }
 }

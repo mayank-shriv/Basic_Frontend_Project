@@ -2,35 +2,101 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="style.css" />
-
-  <title>BMI Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium BMI Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <nav class="ram">
-    <a href="/" aria-current="page">Home</a>
-    <a target="_blank" href="https://www.youtube.com/@chaiaurcode">Youtube channel</a>
+  <nav class="nav-bar">
+    <a href="../index.html" class="nav-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      Dashboard
+    </a>
+    <a target="_blank" href="https://www.youtube.com/@chaiaurcode" class="nav-link secondary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+        </path>
+        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+      </svg>
+      Chai aur Code
+    </a>
   </nav>
-  <div class="container">
-    <h1 class="h1">BMI Calculator</h1>
-    <form>
-      <p><label>Height in CM: </label><input type="text" id="height" /></p>
-      <p><label>Weight in KG: </label><input type="text" id="weight" /></p>
-      <button class="movetocentre">Calculate</button>
-      <div id="results"></div>
-      <div id="weight-guide">
-        <h3>BMI Weight Guide</h3>
-        <p>Under Weight = Less than 18.6</p>
-        <p>Normal Range = 18.6 and 24.9</p>
-        <p>Overweight = Greater than 24.9</p>
+
+  <main class="main-container">
+    <div class="glass-card">
+      <header class="card-header">
+        <h1>BMI Calculator</h1>
+        <p>Track your health with precision</p>
+      </header>
+
+      <form id="bmi-form">
+        <div class="input-group">
+          <label for="height">Height</label>
+          <div class="input-wrapper">
+            <input type="number" id="height" placeholder="e.g. 175" required step="0.1">
+            <span class="unit">cm</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="weight">Weight</label>
+          <div class="input-wrapper">
+            <input type="number" id="weight" placeholder="e.g. 70" required step="0.1">
+            <span class="unit">kg</span>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary">Calculate BMI</button>
+          <button type="reset" id="reset-btn" class="btn-secondary">Reset</button>
+        </div>
+      </form>
+
+      <div id="results" class="results-container hidden">
+        <div class="bmi-value-wrapper">
+          <span class="bmi-label">Your BMI</span>
+          <h2 id="bmi-number">0.0</h2>
+        </div>
+        <div id="bmi-status" class="bmi-status">Normal</div>
+        <p id="bmi-message" class="bmi-message">You have a healthy body weight. Great job!</p>
       </div>
-    </form>
-  </div>
+
+      <section class="weight-guide">
+        <h3>BMI Categories</h3>
+        <div class="guide-grid">
+          <div class="guide-item" data-type="underweight">
+            <span class="category">Underweight</span>
+            <span class="range">&lt; 18.5</span>
+          </div>
+          <div class="guide-item" data-type="normal">
+            <span class="category">Normal</span>
+            <span class="range">18.5 - 24.9</span>
+          </div>
+          <div class="guide-item" data-type="overweight">
+            <span class="category">Overweight</span>
+            <span class="range">25 - 29.9</span>
+          </div>
+          <div class="guide-item" data-type="obese">
+            <span class="category">Obese</span>
+            <span class="range">≥ 30</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
