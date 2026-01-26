@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +70,7 @@
             padding: 1.5em;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none;
         }
 
@@ -97,86 +98,87 @@
 <body>
 
 
-<div class="container">
-    <!-- LEFT SIDE -->
-     <div class="left">
-        <h1>GitInfo</h1>
-        <br>
-        <form id="gitForm">
-            <label for="url">Enter GitHub Profile URL/ Username</label><br><br>
-            <input type="text" id="url" placeholder="https://github.com/username">
+    <div class="container">
+        <!-- LEFT SIDE -->
+        <div class="left">
+            <h1>GitInfo</h1>
             <br>
-            <button type="submit">Submit</button>
-            <div id="error"></div>
-        </form>
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="right">
-        <div id="profile">
-            <img id="avatar" src="images/placeholder.png" alt="Profile Image">
-            <h2 id="name">User Name</h2>
-            <p id="username">@username</p>
-            <p id="bio">This is a placeholder bio.</p>
-            <p id="stats">Followers: 0 | Following: 0 | Repos: 0</p>
-            <a id="profileLink" href="#" target="_blank">View GitHub Profile</a>
+            <form id="gitForm">
+                <label for="url">Enter GitHub Profile URL/ Username</label><br><br>
+                <input type="text" id="url" placeholder="https://github.com/username">
+                <br>
+                <button type="submit">Submit</button>
+                <div id="error"></div>
+            </form>
         </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+            <div id="profile">
+                <img id="avatar" src="images/placeholder.png" alt="Profile Image">
+                <h2 id="name">User Name</h2>
+                <p id="username">@username</p>
+                <p id="bio">This is a placeholder bio.</p>
+                <p id="stats">Followers: 0 | Following: 0 | Repos: 0</p>
+                <a id="profileLink" href="#" target="_blank">View GitHub Profile</a>
+            </div>
+        </div>
+
     </div>
+    <script>document.getElementById('gitForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-</div>
-<script>document.getElementById('gitForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+            const inputUrl = document.getElementById('url').value.trim();
+            const error = document.getElementById('error');
+            const profile = document.getElementById('profile');
 
-    const inputUrl = document.getElementById('url').value.trim();
-    const error = document.getElementById('error');
-    const profile = document.getElementById('profile');
+            error.innerText = '';
+            profile.style.display = 'none';
 
-    error.innerText = '';
-    profile.style.display = 'none';
-
-    if (!inputUrl) {
-        error.innerText = 'Please enter a GitHub profile URL or username';
-        return;
-    }
-
-    const username = inputUrl.replace(/\/+$/, '').split('/').pop();
-    const apiUrl = `https://api.github.com/users/${username}`;
-
-    error.innerText = 'Loading...';
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', apiUrl);
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-
-                document.getElementById('avatar').src = data.avatar_url;
-                document.getElementById('avatar').alt = `${data.login}'s avatar`;
-
-                document.getElementById('name').innerText =
-                    data.name || 'No name provided';
-                document.getElementById('username').innerText = data.login;
-                document.getElementById('bio').innerText =
-                    data.bio || 'No bio available';
-
-                document.getElementById('stats').innerText =
-                    `Followers: ${data.followers} | Following: ${data.following} | Repos: ${data.public_repos}`;
-
-                document.getElementById('profileLink').href = data.html_url;
-
-                error.innerText = '';
-                profile.style.display = 'block';
-            } else {
-                error.innerText = 'User not found or API error';
+            if (!inputUrl) {
+                error.innerText = 'Please enter a GitHub profile URL or username';
+                return;
             }
-        }
-    };
 
-    xhr.send();
-});
-</script>
+            const username = inputUrl.replace(/\/+$/, '').split('/').pop();
+            const apiUrl = `https://api.github.com/users/${username}`;
+
+            error.innerText = 'Loading...';
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', apiUrl);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+
+                        document.getElementById('avatar').src = data.avatar_url;
+                        document.getElementById('avatar').alt = `${data.login}'s avatar`;
+
+                        document.getElementById('name').innerText =
+                            data.name || 'No name provided';
+                        document.getElementById('username').innerText = data.login;
+                        document.getElementById('bio').innerText =
+                            data.bio || 'No bio available';
+
+                        document.getElementById('stats').innerText =
+                            `Followers: ${data.followers} | Following: ${data.following} | Repos: ${data.public_repos}`;
+
+                        document.getElementById('profileLink').href = data.html_url;
+
+                        error.innerText = '';
+                        profile.style.display = 'block';
+                    } else {
+                        error.innerText = 'User not found or API error';
+                    }
+                }
+            };
+
+            xhr.send();
+        });
+    </script>
 
 </body>
+
 </html>
